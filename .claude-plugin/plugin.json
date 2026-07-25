@@ -1,0 +1,10 @@
+{
+  "name": "security-scan",
+  "version": "0.1.0",
+  "description": "分层代码安全扫描与修复闭环：L1 高危模式快检 / L2 增量变更语义分析 / L3 跨文件跨函数污点数据流追踪 / 全量仓库审计。先用内置规则引擎预筛 source·sink·sanitizer 候选点，再由模型逐条验证「输入是否真的攻击者可控、调用链是否真的抵达危险汇聚点、路径上的净化函数是否真的防得住」，只输出带完整传播路径与可核验证据的 findings（Severity / CWE·OWASP / Location），产出 Markdown 与自包含 HTML 报告，并在用户确认后落地修复、跑原有测试、复扫确认同路径风险消失。**未经用户明确确认不得改动代码**。",
+  "author": {
+    "name": "wcpe"
+  },
+  "homepage": "https://github.com/wcpe/security-scan",
+  "repository": "https://github.com/wcpe/security-scan"
+}
