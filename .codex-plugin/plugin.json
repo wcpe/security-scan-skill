@@ -5,7 +5,7 @@
   "author": {
     "name": "wcpe"
   },
-  "homepage": "https://github.com/wcpe/security-scan",
-  "repository": "https://github.com/wcpe/security-scan",
+  "homepage": "https://github.com/wcpe/security-scan-skill",
+  "repository": "https://github.com/wcpe/security-scan-skill",
   "skills": "./skills/"
 }
