@@ -44,6 +44,15 @@ claude plugin add /path/to/security-scan-skill
 
 仓库带 `.devin-plugin/plugin.json` manifest + `skills/security-scan/SKILL.md`（Devin 的插件加载约定）。在 Devin 侧用仓库 URL 安装插件后，`security-scan` 技能即被模型按触发词自动调用；引擎脚本（`scripts/*.py`）由会话内的 exec 工具直接执行，仅需 `python3`（可选 `ripgrep` 加速预筛）。
 
+### Antigravity 插件
+
+仓库带 `.antigravity-plugin/plugin.json` manifest，通过 Antigravity CLI 一键安装后自动加载 `skills/security-scan`（支持自然语言触发或 `/security-scan` 显式调用），并同步到 Antigravity App 与 CLI：
+
+```bash
+agy plugin install https://github.com/wcpe/security-scan-skill
+agy plugin list
+```
+
 ### 任何只认技能目录的 agent
 
 把 `skills/security-scan/` 整个目录拷进 agent 的技能目录即可（opencode、Cursor、Gemini CLI 等通用）。
@@ -70,14 +79,15 @@ python skills/security-scan/scripts/install_l1_hook.py
 ## 目录结构
 
 ```
-.claude-plugin/plugin.json   # Claude Code 插件 manifest
-.codex-plugin/plugin.json    # Codex 插件 manifest
-.devin-plugin/plugin.json    # Devin 插件 manifest
-commands/                    # Claude Code 斜杠命令（4 个模式入口）
+.antigravity-plugin/plugin.json # Antigravity 插件 manifest
+.claude-plugin/plugin.json      # Claude Code 插件 manifest
+.codex-plugin/plugin.json       # Codex 插件 manifest
+.devin-plugin/plugin.json       # Devin 插件 manifest
+commands/                       # Claude Code 斜杠命令（4 个模式入口）
 skills/security-scan/
-  SKILL.md                   # 技能正文：模式路由、验证纪律、报告与修复闭环
-  scripts/                   # 检测引擎：collect_scope / prefilter / l1_check / render_report / install_l1_hook + rules.json
-  references/                # taint-analysis 方法论、报告格式、8 种语言专项规则
+  SKILL.md                      # 技能正文：模式路由、验证纪律、报告与修复闭环
+  scripts/                      # 检测引擎：collect_scope / prefilter / l1_check / render_report / install_l1_hook + rules.json
+  references/                   # taint-analysis 方法论、报告格式、8 种语言专项规则
 ```
 
 ## 边界

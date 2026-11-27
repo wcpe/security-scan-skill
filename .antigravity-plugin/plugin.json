@@ -1,0 +1,25 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "security-scan",
+  "displayName": "Security Scan",
+  "version": "0.1.0",
+  "description": "分层代码安全扫描与修复闭环：L1 快检 / L2 增量语义分析 / L3 跨文件污点追踪 / 全量审计，规则预筛加模型验证并产出 Markdown 与 HTML 报告。",
+  "suggestedPrompts": [
+    "对当前工作区的未提交代码变更做一次 L2 安全扫描",
+    "发 PR 前对本分支改动做 L3 跨文件深度污点安全审查",
+    "对当前代码库执行全量安全审计并输出可核验的漏洞报告"
+  ],
+  "author": {
+    "name": "wcpe",
+    "url": "https://github.com/wcpe"
+  },
+  "homepage": "https://github.com/wcpe/security-scan-skill",
+  "repository": "https://github.com/wcpe/security-scan-skill",
+  "keywords": [
+    "security",
+    "sast",
+    "taint-analysis",
+    "vulnerability",
+    "code-scanning"
+  ]
+}
